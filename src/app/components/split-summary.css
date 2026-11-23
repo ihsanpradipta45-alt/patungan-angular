@@ -1,0 +1,12 @@
+:host {
+  display: block;
+}
+.orang {
+  min-width: 20px;
+}
+.pajak-input {
+  width: 80px;
+}
+.status {
+  font-size: 0.75rem;
+}

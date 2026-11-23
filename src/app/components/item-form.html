@@ -1,0 +1,7 @@
+<form class="d-flex gap-2 my-3" (submit)="$event.preventDefault(); kirim()">
+  <input type="text" class="form-control" placeholder="Nama item"
+         [value]="nama()" (input)="nama.set($any($event.target).value)">
+  <input type="number" min="0" class="form-control" placeholder="Harga"
+         [value]="harga()" (input)="harga.set($any($event.target).value)">
+  <button type="submit" class="btn btn-primary px-4">Tambah</button>
+</form>

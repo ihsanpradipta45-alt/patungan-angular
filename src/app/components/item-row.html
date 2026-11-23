@@ -1,0 +1,25 @@
+<div class="baris d-flex align-items-center px-3 py-2">
+  <span class="no text-muted">{{ no() }}.</span>
+
+  <div class="flex-grow-1">
+    <div class="fw-semibold small">{{ item().name }}</div>
+    <div class="text-muted small">
+      {{ item().price | currency: 'IDR' : 'symbol-narrow' : '1.0-0' }} per porsi
+    </div>
+  </div>
+
+  <div class="d-flex align-items-center gap-2 me-4">
+    <button type="button" class="btn btn-sm btn-outline-secondary"
+            [disabled]="item().qty <= 1" (click)="ubahQty.emit(-1)">-</button>
+    <span class="qty small text-center">{{ item().qty }}</span>
+    <button type="button" class="btn btn-sm btn-outline-secondary"
+            (click)="ubahQty.emit(1)">+</button>
+  </div>
+
+  <span class="total fw-semibold small text-end">
+    {{ total() | currency: 'IDR' : 'symbol-narrow' : '1.0-0' }}
+  </span>
+
+  <button type="button" class="btn btn-sm btn-outline-danger ms-3"
+          (click)="hapus.emit(item().id)">Hapus</button>
+</div>

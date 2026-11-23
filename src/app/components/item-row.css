@@ -1,0 +1,16 @@
+:host {
+  display: block;
+}
+.baris {
+  background: #f3f4f6;
+  border-bottom: 1px solid #dee2e6;
+}
+.no {
+  width: 28px;
+}
+.qty {
+  min-width: 20px;
+}
+.total {
+  min-width: 80px;
+}

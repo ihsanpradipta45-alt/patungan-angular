@@ -1,0 +1,47 @@
+<div class="card">
+  <div class="card-body">
+    <div class="d-flex justify-content-between align-items-center mb-2">
+      <span class="small">Jumlah orang</span>
+      <div class="d-flex align-items-center gap-2">
+        <button type="button" class="btn btn-sm btn-outline-secondary"
+                [disabled]="jumlahOrang() <= 1" (click)="ubahOrang.emit(-1)">-</button>
+        <span class="small text-center orang">{{ jumlahOrang() }}</span>
+        <button type="button" class="btn btn-sm btn-outline-secondary"
+                (click)="ubahOrang.emit(1)">+</button>
+      </div>
+    </div>
+
+    <div class="d-flex justify-content-between align-items-center">
+      <label class="small" for="pajak">Pajak dan layanan (%)</label>
+      <input id="pajak" type="number" min="0"
+             class="form-control form-control-sm pajak-input"
+             [value]="pajakPersen()"
+             (input)="ubahPajak.emit(+$any($event.target).value)">
+    </div>
+
+    <hr>
+
+    <div class="d-flex justify-content-between small">
+      <span>Subtotal</span>
+      <span>{{ subtotal() | currency: 'IDR' : 'symbol-narrow' : '1.0-0' }}</span>
+    </div>
+    <div class="d-flex justify-content-between small">
+      <span>Pajak dan layanan ({{ pajakPersen() }}%)</span>
+      <span>{{ pajak() | currency: 'IDR' : 'symbol-narrow' : '1.0-0' }}</span>
+    </div>
+    <div class="d-flex justify-content-between small fw-semibold">
+      <span>Total</span>
+      <span>{{ total() | currency: 'IDR' : 'symbol-narrow' : '1.0-0' }}</span>
+    </div>
+
+    <div class="d-flex justify-content-between align-items-center mt-3">
+      <span class="fw-bold fs-5">
+        Per orang
+        <span class="badge ms-1 status" [class]="status().kelas">{{ status().teks }}</span>
+      </span>
+      <span class="fw-bold fs-5">
+        {{ perOrang() | currency: 'IDR' : 'symbol-narrow' : '1.0-0' }}
+      </span>
+    </div>
+  </div>
+</div>
